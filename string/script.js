@@ -70,3 +70,4 @@ const transacoes1 = [
   });
 
   console.log(`Existem ${count} taxas na lista.`)
+
