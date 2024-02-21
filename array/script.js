@@ -50,3 +50,5 @@ const arrayOriginal = carros.slice()
 carros.pop()
 console.log(arrayOriginal);
 console.log(carros);
+
+
