@@ -1,23 +1,68 @@
-const nomes = ["Diego", "Olivia", "Isis"]
-nomes.forEach(element => console.log(element));
+// Selecione cada curso e retorne uma array
+// com objetos contendo o título, descricao,
+// aulas e horas de cada curso
+const cursos = document.querySelectorAll('.curso')
+const arrayCursos = Array.from(cursos)
 
-const numeros = [2,4,6,7]
-const numerosMultiplicados = numeros.map(n => n*2)
-console.log(numerosMultiplicados)
+const objetoCurso = arrayCursos.map(curso => {
+  const titulo = curso.querySelector('h1').innerText
+  const descricao = curso.querySelector('p').innerText
+  const aulas = curso.querySelector('.aulas').innerText
+  const horas = curso.querySelector('.horas').innerText
 
-const taboadaTres = numeros.map(n => n*3)
-console.log(taboadaTres)
-
-const maiorNumero = numeros.reduce((anterior, atual) => {
-  return anterior > atual ? anterior : atual
+  return {
+    titulo,
+    descricao,
+    aulas,
+    horas
+  }
 })
 
-console.log(maiorNumero);
+// Retorne uma lista com os
+// números maiores que 100
+const numeros = [3, 44, 333, 23, 122, 322, 33];
 
-// PARA VERIFICAR SE EXISTE UM DETERMINADO NUMERO NO ARRAY
-const numeroEscolhido = numeros.some(n => n === 2)
-console.log(numeroEscolhido);
+const maioresQue100 = numeros.filter(n => n >= 100)
+console.log(maioresQue100);
 
-// PARA VERIFICAR SE ALGUM NUMERO NÃO EH PAR (DIVISIVEL POR 2)
-const verificarArray = numeros.every(n => n%2 == 0)
-console.log(verificarArray);
+// Verifique se Baixo faz parte
+// da lista de instrumentos e retorne true
+const instrumentos = ['Guitarra', 'Baixo', 'Bateria', 'Teclado']
+
+const temBaixo = instrumentos.some(instrumento => instrumento === 'Baixo'
+)
+
+console.log(temBaixo);
+
+
+// Retorne o valor total das compras
+const compras = [
+  {
+    item: 'Banana',
+    preco: 'R$ 4,99'
+  },
+  {
+    item: 'Ovo',
+    preco: 'R$ 2,99'
+  },
+  {
+    item: 'Carne',
+    preco: 'R$ 25,49'
+  },
+  {
+    item: 'Refrigerante',
+    preco: 'R$ 5,35'
+  },
+  {
+    item: 'Quejo',
+    preco: 'R$ 10,60'
+  }
+]
+
+const valorTotal = compras.reduce((acumulador,item) => {
+  const precoLimpo = +item.preco.replace('R$ ', '').replace(',', '.')
+
+  return acumulador += precoLimpo
+}, 0)
+
+console.log(valorTotal);
